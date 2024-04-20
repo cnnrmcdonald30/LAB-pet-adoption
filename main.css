@@ -1,5 +1,45 @@
-div {
+body{
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 50px;
+
+}
+
+img {
+    height: 190.66px;
+}
+.btn-container {
+    display: flex;
+    margin: 20px;
+    top: 15px;
+    
+}
+#pet {
+    margin: 60px;
+}
+button{
+    margin: 20px;
+    top: 30%;
+}
+
+.center {
+    position: absolute;
+    padding-top: 80px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .container  {
+    display: flex;  
 }
