@@ -276,7 +276,6 @@ header.innerHTML += `
 </style>
 `
 
-// Render to DOM function
 
 
 const showAllCats = () => {
@@ -297,6 +296,7 @@ pets.forEach((pet) => {
 </div>`;
   }
   targetingApp.innerHTML = domString;
+  
 });
 
 }
@@ -347,10 +347,9 @@ pets.forEach((pet) => {
 
 }
 const showAll = () => {
-  domString = "";
+domString = ""
 pets.forEach(pet => {
-  domString+= `
-<div class="card" style="width: 18rem; display: flex; margin: 10px">
+  domString+= `<div class="card" style="width: 18rem; display: flex; margin: 10px">
   <div class-header>
   <h3 class="card-title">${pet.name}</h3>
   </div>
@@ -358,9 +357,11 @@ pets.forEach(pet => {
   <div class="card-body">
     <p class="card-text">${pet.color}</p>
     <p class="card-text">${pet.specialSkill}</p>
+    <button class="btn btn-info">${pet.type}</button>
+    <button class="btn btn-danger">Delete</button>
   </div>
 </div>`;
-});
+})
 targetingApp.innerHTML = domString
 }
 
@@ -368,9 +369,38 @@ targetingApp.innerHTML = domString
 
 
 catBtn.addEventListener("click", showAllCats)
-
-
 dogBtn.addEventListener("click", showAllDogs)
-
 dinoBtn.addEventListener("click", showAllDino)
 allBtn.addEventListener("click", showAll)
+
+const form = document.querySelector(form);
+
+const createPet = (e) => {
+  domString = ""
+  e.preventDefault();
+  const newPet =  {
+    id: pets.length + 1,
+    name: document.getElementById("petName").value,
+    type: document.getElementById("type").value,
+    color: document.getElementById("color").value,
+    specialSkill: document.getElementById("skills").value,
+    imageUrl: document.getElementById("img").value
+  }
+  pets.push(newPet)
+  domString = ""
+  targetingApp.innerHTML += domString
+  form.reset()
+}
+form.addEventListener("submit", createPet);
+
+targetingApp.addEventListener("click", (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--");
+    console.log("id", id);
+    const index = pets.findIndex((pet) => pet.id === Number(id));
+    console.log("index", index);
+    pets.splice(index, 1);
+    domString = " ";
+    targetingApp.innerHTML += domString;
+  }
+})

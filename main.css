@@ -3,7 +3,8 @@ body{
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .card-container {
     display: flex;
@@ -12,7 +13,7 @@ body{
     align-content: flex-start;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 50px;
+    padding: 80px;
 
 }
 
@@ -23,6 +24,11 @@ img {
     display: flex;
     margin: 20px;
     top: 15px;
+    text-align: center;
+    font-weight: bolder;
+}
+.btn-container h1 {
+    padding-top: 15px;
     
 }
 #pet {
@@ -42,4 +48,9 @@ button{
   }
   .container  {
     display: flex;  
+}
+
+.card-title {
+    text-align: center;
+    background-color: beige;
 }
